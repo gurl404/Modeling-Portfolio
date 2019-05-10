@@ -4,6 +4,7 @@
   "description": "Booking and scheduling site for freelance model Caterina Clayton.",
   "main": "index.js",
   "scripts": {
+    "start": "node helloWorld.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
