@@ -1,0 +1,26 @@
+{
+  "name": "caterinaclaytonbooking",
+  "version": "1.0.0",
+  "description": "Booking and scheduling site for freelance model Caterina Clayton.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cat3696/Modeling-Portfolio.git"
+  },
+  "keywords": [
+    "modeling",
+    "caterina",
+    "clayton",
+    "portfolio",
+    "booking",
+    "site"
+  ],
+  "author": "Caterina Clayton",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
