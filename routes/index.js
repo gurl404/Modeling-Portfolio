@@ -12,20 +12,21 @@ router.get("/layout", function(req,res){
     res.render('layout.pug', {title:'Caterina Clayton Modeling'});
 })
 
-// router.get("/",function(req,res){
-//   res.sendFile(path + "portfolio.html");
-// });
+//Once in pug files, use res.render('filename', {xxxxx})
+router.get("/",function(req,res){
+  res.render("portfolio.pug");
+});
 
-// router.get("/book",function(req,res){
-//   res.sendFile(path + "book.html");
-// });
+router.get("/book",function(req,res){
+  res.render("book.pug");
+});
 
-// router.get("/review",function(req,res){
-//   res.sendFile(path + "review.html");
-// });
+router.get("/review",function(req,res){
+  res.render("review.pug");
+});
 
-// router.get("/login",function(req,res){
-//     res.sendFile(path + "login.html");
-// });
+router.get("/login",function(req,res){
+  res.render("login.pug");
+});
 
 module.exports = router;
