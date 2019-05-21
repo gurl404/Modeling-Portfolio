@@ -29,4 +29,8 @@ router.get("/login",function(req,res){
   res.render("login.pug");
 });
 
+router.get("/signup",function(req,res){
+  res.render("signup.pug");
+});
+
 module.exports = router;
