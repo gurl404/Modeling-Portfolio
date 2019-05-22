@@ -1,0 +1,65 @@
+img{
+    width: 70%;
+    height: 80%;
+    vertical-align: auto;
+}
+#myCarousel{
+    display: flex;
+    height: 700px;
+    vertical-align: auto;
+    background:black;
+    margin: 3 auto;
+    padding: 5%;
+    width: 500px;
+}
+
+.carousel-caption{
+    margin-block: 10%;
+}
+.carousel-inner{
+    display:flex; 
+
+    .img1{ flex: calc(333/ ) ; }
+    .img2{ flex: calc(333/500) ‬; }
+    .img3{ flex: calc(333/ ) ; }
+    .img4{ flex: calc(333/ ); }
+    .img5{ flex: calc(333/416 )‬; }
+    .img6{flex: calc(333/499 ) ;}
+    .img7{flex: ‬calc(333/ );}
+}
+.carousel-control-prev{
+    position: absolute; 
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 15%;
+    color: black;
+    text-align: center;
+    opacity: .5;
+    transition: opacity .15s ease;
+}
+
+.carousel-control-next{
+    position: absolute;
+    right: 0; 
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 15%;
+    color:black;
+    text-align: center;
+    opacity: .5;
+    transition: opacity .15s ease;
+}
