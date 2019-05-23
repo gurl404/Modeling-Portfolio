@@ -1,36 +1,36 @@
+
 const express = require('express');
+const routes = express.Router();
 
-const router = express.Router();
 
-
-router.use(function (req,res,next) {
+routes.use(function (req,res,next) {
   console.log("/" + req.method);
   next();
 });
 
-router.get("/layout", function(req,res){
+routes.get("/layout", function(req,res){
     res.render('layout.pug', {title:'Caterina Clayton Modeling'});
 })
 
 //Once in pug files, use res.render('filename', {xxxxx})
-router.get("/",function(req,res){
+routes.get("/",function(req,res){
   res.render("portfolio.pug");
 });
 
-router.get("/book",function(req,res){
+routes.get("/book",function(req,res){
   res.render("book.pug");
 });
 
-router.get("/review",function(req,res){
+routes.get("/review",function(req,res){
   res.render("review.pug");
 });
 
-router.get("/login",function(req,res){
+routes.get("/login",function(req,res){
   res.render("login.pug");
 });
 
-router.get("/signup",function(req,res){
+routes.get("/signup",function(req,res){
   res.render("signup.pug");
 });
 
-module.exports = router;
+module.exports = routes;
