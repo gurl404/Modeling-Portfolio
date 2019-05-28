@@ -20,7 +20,7 @@ o	MySQL
 
 o	Express
 
-o	MongoBD/Mongoose 
+o	MongoDB/Mongoose 
 
 
 
