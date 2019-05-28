@@ -1,6 +1,9 @@
 
 const express = require('express');
 const app = express();
+//Register User model with our app.
+//Think I goofed this part up 
+require('./models/User');
 const router = require('./routes/index');
 const path = __dirname + '/views/';
 const mongoose = require('mongoose');
@@ -9,7 +12,6 @@ config = {
   serverPort:  3000,
   dbUrl: 'mongodb://localhost/cc_modeling'
 }
-//////////////////
 
 
 app.set('views', path);
