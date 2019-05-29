@@ -1,7 +1,8 @@
 
 const express = require('express');
 const routes = express.Router();
-
+//Register User model with our app.
+const user = require('./models/User');
 
 routes.use(function (req,res,next) {
   console.log("/" + req.method);

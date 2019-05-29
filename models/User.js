@@ -2,18 +2,7 @@ var mongoose = require('mongoose');
 var uniqueValidator = require('mongoose-unique-validator');
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
-var secret = require('../config').secret;
-
-//method for setting user passwords
-UserSchema.methods.setPassword = function(password){
-  this.salt = crypto.randomBytes(16).toString('hex');
-  this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
-};
-//method to validate passwords
-UserSchema.methods.validPassword = function(password) {
-    var hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
-    return this.hash === hash;
-    };
+var secret = require('../config/').secret;
 
 ////Create user schema
 var UserSchema = new mongoose.Schema({
@@ -27,6 +16,12 @@ email: {type: String, lowercase: true, unique: true, required: [true, "can't be 
 }, {timestamps: true});
 
 
+//method for setting user passwords
+UserSchema.methods.setPassword = function(password){
+    this.salt = crypto.randomBytes(16).toString('hex');
+    this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
+  };
+
 //get JSON representation of a user for authentification
 UserSchema.methods.toAuthJSON = function(){
      return {
@@ -36,6 +31,13 @@ UserSchema.methods.toAuthJSON = function(){
         bio: this.bio,
         image: this.image
       };
+    };
+
+
+//method to validate passwords
+UserSchema.methods.validPassword = function(password) {
+    var hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
+    return this.hash === hash;
     };
 
 //method that generates JWT
