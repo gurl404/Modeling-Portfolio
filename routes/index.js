@@ -1,9 +1,15 @@
 
 const express = require('express');
 const routes = express.Router();
-//Register User model with our app.
-const user = require('./models/User');
+//Register models 
+require('./models/User.js')(mongoose);
+require('./models/Comment.js')(mongoose);
+require('./models/Appointment.js')(mongoose);
 
+//Register controllers
+
+
+//routes
 routes.use(function (req,res,next) {
   console.log("/" + req.method);
   next();
@@ -33,5 +39,6 @@ routes.get("/login",function(req,res){
 routes.get("/signup",function(req,res){
   res.render("signup.pug");
 });
+
 
 module.exports = routes;

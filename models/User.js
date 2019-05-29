@@ -1,18 +1,20 @@
-var mongoose = require('mongoose');
-var uniqueValidator = require('mongoose-unique-validator');
-var crypto = require('crypto');
-var jwt = require('jsonwebtoken');
-var secret = require('../config/').secret;
+/*const mongoose = require('mongoose');
+const uniqueValidator = require('mongoose-unique-validator');
+const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
+const secret = require('../config/').secret;
 
 ////Create user schema
-var UserSchema = new mongoose.Schema({
+const Schema = mongoose.Schema; 
+const UserSchema = new Schema({
 
-username: {type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/^[a-zA-Z0-9]/, 'is invalid'], index: true},
-email: {type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/\S+@\S+\.\S+/, 'is invalid'], index: true},
-  bio: String,
-  image: String,
-  hash: String,
-  salt: String
+    username: {type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/^[a-zA-Z0-9]/, 'is invalid'], index: true, default:''},
+    email: {type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/\S+@\S+\.\S+/, 'is invalid'], index: true, default:''},
+    first_name: String, default: '', 
+    last_name: String, default: '',
+    bio: String, default: '',
+    hash: String, default: '',
+    salt: String, default: ''
 }, {timestamps: true});
 
 
@@ -29,21 +31,22 @@ UserSchema.methods.toAuthJSON = function(){
         email: this.email,
         token: this.generateJWT(),
         bio: this.bio,
-        image: this.image
+        first_name: this.first_name, 
+        last_name: this.last_name,
       };
     };
 
 
 //method to validate passwords
 UserSchema.methods.validPassword = function(password) {
-    var hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
+    const hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
     return this.hash === hash;
     };
 
 //method that generates JWT
 UserSchema.methods.generateJWT = function() {
-    var today = new Date();
-    var exp = new Date(today);
+    const today = new Date();
+    const exp = new Date(today);
     exp.setDate(today.getDate() + 60);
         return jwt.sign({
       id: this._id,
@@ -52,4 +55,32 @@ UserSchema.methods.generateJWT = function() {
     }, secret);
 };
 UserSchema.plugin(uniqueValidator, {message: 'is already taken.'});
-mongoose.model('User', UserSchema); 
+//compile model from schema
+const User = mongoose.model('User', UserSchema); 
+
+*/
+
+const mongoose = require('mongoose');
+
+// User Schema
+const UserSchema = mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  username: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+});
+
+const User = mongoose.model('User', UserSchema);
+mongoose.exports = User

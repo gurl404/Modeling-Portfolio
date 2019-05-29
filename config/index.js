@@ -1,2 +1,4 @@
-secret = 'dfgagdf554843364atdgdfsg';
-module.exports = secret;
+module.exports = {
+    database: 'mongodb://localhost:3000/cc_modeling',
+    secret: 'mysecret'
+  }
