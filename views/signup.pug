@@ -4,8 +4,11 @@ block content
   h1 Signup
   form(method='POST', action='/users/signup')
     .form-group
-      label Name:
-      input.form-control(name='name', type='text')
+      label First Name:
+      input.form-control(name='first_name', type='text')
+    .form-group
+      label Last Name:
+      input.form-control(name='last_name', type='text')
     .form-group
       label Email:
       input.form-control(name='email', type='text')

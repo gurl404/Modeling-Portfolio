@@ -2,11 +2,8 @@
 const express = require('express');
 const routes = express.Router();
 //Register models 
-require('./models/User.js')(mongoose);
-require('./models/Comment.js')(mongoose);
-require('./models/Appointment.js')(mongoose);
-
-//Register controllers
+require('../models/User.js');
+require('../models/Comment.js');
 
 
 //routes
