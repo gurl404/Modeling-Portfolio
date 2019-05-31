@@ -1,6 +1,8 @@
 const mongoose = require('mongoose'); 
-
+const express = require('express');
+const router = express.Router();
 const Schema = mongoose.Schema; 
+
 
 const CommentSchema = new Schema({
     body: {type: String, default: '', maxlength: 1000}, 
@@ -13,4 +15,5 @@ CommentSchema.methods = {
 
 }
 const Comment = mongoose.model('Comment', CommentSchema);
-module.exports = Comment
+module.exports = Comment; 
+module.exports = router; 

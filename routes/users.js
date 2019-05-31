@@ -4,11 +4,11 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
 // User model
-const User = require('../models/user');
+const User = require('../models/User');
 
 // Register form
 router.get('/signup', function(req, res){
-  res.render('signup');
+  res.render('signup.pug');
 });
 
 // Register process
@@ -65,7 +65,7 @@ router.post('/signup', function(req, res){
 
 // Login form
 router.get('/login', function(req, res) {
-  res.render('login');
+  res.render('login.pug');
 });
 
 // Login process

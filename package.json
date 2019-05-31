@@ -22,12 +22,14 @@
   "author": "Caterina Clayton",
   "license": "UNLICENSED",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^4.3.1",
     "express": "^4.16.4",
     "jquery": "^3.4.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.10",
     "mongoose-unique-validator": "^2.0.3",
+    "passport": "^0.4.0",
     "popper.js": "^1.15.0",
     "pug": "^2.0.3"
   },

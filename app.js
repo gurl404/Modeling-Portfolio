@@ -17,8 +17,6 @@ app.set('view engine', 'pug');
 app.use(express.static('public'));
 app.use('/', router);
 
-connect(); 
-
 ///////////////////
 
 function listen() {
@@ -47,3 +45,4 @@ app.use(function(req, res) {
 //////////////////////////////////////////////////////
 
 module.exports = app;
+module.exports = router;

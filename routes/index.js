@@ -1,12 +1,19 @@
 
 const express = require('express');
 const routes = express.Router();
+const app = express();
 //Register models 
 require('../models/User.js');
 require('../models/Comment.js');
 
 
 //routes
+let users = require('./users.js');
+app.use('/users', 'users');
+
+let comment = require('./comment.js')
+app.use('/comment', 'comment')
+
 routes.use(function (req,res,next) {
   console.log("/" + req.method);
   next();
@@ -39,3 +46,4 @@ routes.get("/signup",function(req,res){
 
 
 module.exports = routes;
+module.exports = router; 

@@ -61,10 +61,16 @@ const User = mongoose.model('User', UserSchema);
 */
 
 const mongoose = require('mongoose');
+const express = require('express');
+const router = express.Router();
 
 // User Schema
 const UserSchema = mongoose.Schema({
-  name: {
+  first_name: {
+    type: String,
+    required: true
+  },
+  last_name: {
     type: String,
     required: true
   },
@@ -83,4 +89,5 @@ const UserSchema = mongoose.Schema({
 });
 
 const User = mongoose.model('User', UserSchema);
-mongoose.exports = User
+mongoose.exports = User; 
+module.exports = router; 
