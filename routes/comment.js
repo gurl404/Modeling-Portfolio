@@ -1,47 +1,103 @@
-// const express = require('express');
-// const router = express.Router();
-// // User model
-// const Comment = require('../models/Comment');
+const express = require('express');
+const router = express.Router();
 
-// // Register form
-// router.get('/Comment', function(req, res){
-//   res.render('Comment');
-// });
+// Comment model
+const Comment = require('../models/Comment');
 
-// // Register process
-// router.post('/Comment', function(req, res){
-//   const comment= req.body.comment;
+router.get("/",function(req,res){
+    res.render("comment.pug");
+  });
 
+// new article form
+router.get('/add', function(req, res){
+  res.render('add_comment', {
+    title: 'Add Comment'
+  });
+});
 
-//   req.checkBody('Comment', 'Comment is required').notEmpty();
-//   //Add way to list username if user is signed in
+// submit new comment
+router.post('/add', function(req, res){
+  // Express validator
+  req.checkBody('author', 'Author is required').notEmpty();
+  req.checkBody('body', 'Body is required').notEmpty();
+  
+  // Get errors
+  let errors = req.validationErrors();
 
-//   let errors = req.validationErrors();
+  if(errors){
+    res.render('add_comment', {
+      title: 'Add Comment',
+      errors: errors
+    });
+  } else {
+    let comment = new Comment();
+    comment.author = req.body.author;
+    comment.body = req.body.body;
 
-//   if(errors){
-//     res.render('comment', {
-//       errors: errors
-//     });
-//   } else {
-//     //Add comment mechanics. Save to db. 
-//     let Comment = new Comment({
-//       comment: comment, 
+    comment.save(function(err){
+      if(err) {
+        console.error(err);
+        return;
+      } else {
+        req.flash('success', 'Comment Added');
+        res.redirect('/');
+      }
+    });
+  }
+});
 
-//     });
+// load edit form
+router.get('/edit/:id', function(req, res){
+  Comment.findById(req.params.id, function(err, comment){
+    res.render('edit_comment', {
+      title: 'Edit Comment',
+      comment: comment
+    });
+  });
+});
 
-//         newUser.save(function(err){
-//           if(err) {
-//             console.error(err);
-//             return;
-//           } else {
-//             req.flash('success', 'You are now registered and can log in');
-//             res.redirect('/users/login');
-//           }
-//         });
-//       });
-//     })
-//   }
-// });
+// update submit new comment
+router.post('/edit/:id', function(req, res){
+  let comment = {};
+  comment.author = req.body.author;
+  comment.body = req.body.body;
 
+  let query = {_id: req.params.id};
 
-// module.exports = router;
+  Comment.update(query, comment, function(err){
+    if(err) {
+      console.error(err);
+      return;
+    } else {
+      req.flash('success', 'Comment Updated');
+      res.redirect('/');
+    }
+  })
+});
+
+// Delete post
+router.delete('/:id', function(req, res){
+  let query = {_id: req.params.id};
+
+  Comment.remove(query, function(err){
+    if(err) {
+      console.error(err);
+      return;
+    } else {
+      req.flash('success', 'Comment Deleted')
+      res.send('Success');
+    }
+  });
+});
+
+// get single comment
+router.get('/:id', function(req, res){
+  Comment.findById(req.params.id, function(err, comment){
+      console.log(comment);
+    res.render('comment', {
+      comment: comment
+    });
+  });
+});
+
+module.exports = router;

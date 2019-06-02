@@ -19,7 +19,7 @@ router.post('/signup', function(req, res){
   const username = req.body.username;
   const password = req.body.password;
   const password2 = req.body.password2;
-console.log("test");
+
 
   req.checkBody('first_name', 'First name is required').notEmpty();
   req.checkBody('last_name', 'Last name is required').notEmpty();
@@ -29,9 +29,9 @@ console.log("test");
   req.checkBody('password', 'Password is required').notEmpty();
   req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
   req.checkBody('password2', 'Confirm password is required').notEmpty();
-console.log("test");
+
   let errors = req.validationErrors();
-console.log("test");
+
   if(errors){
     res.render('signup', {
       errors: errors
@@ -87,7 +87,6 @@ router.post('/login', function(req, res, next){
 // Logout form
 
 router.get('/logout', function(req, res) {
-  console.log("test90");
   req.logout();
   req.flash('success', 'You are logged out');
   res.redirect('/users/login');
