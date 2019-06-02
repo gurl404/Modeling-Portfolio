@@ -19,45 +19,52 @@ router.post('/signup', function(req, res){
   const username = req.body.username;
   const password = req.body.password;
   const password2 = req.body.password2;
+console.log("test");
 
-  req.checkBody('first_name', 'Name is required').notEmpty();
-  req.checkBody('last_name', 'Name is required').notEmpty();
+  req.checkBody('first_name', 'First name is required').notEmpty();
+  req.checkBody('last_name', 'Last name is required').notEmpty();
   req.checkBody('email', 'Email is required').notEmpty();
   req.checkBody('email', 'Email is required').isEmail();
   req.checkBody('username', 'Username is required').notEmpty();
   req.checkBody('password', 'Password is required').notEmpty();
   req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
-
+  req.checkBody('password2', 'Confirm password is required').notEmpty();
+console.log("test");
   let errors = req.validationErrors();
-
+console.log("test");
   if(errors){
     res.render('signup', {
       errors: errors
     });
   } else {
     let newUser = new User({
+      
       first_name: first_name,
       last_name: last_name, 
       email: email,
       username: username,
       password: password
+      
     });
-    bcrypt.genSalt(10, function(err, salt){
+
+    bcrypt.genSalt(10, function(err, salt){ 
+        console.log("test49");
       bcrypt.hash(newUser.password, salt, function(err, hash){
+          console.log("test51");
         if(err){
           console.error(err);
         }
         newUser.password = hash;
-
-        newUser.save(function(err){
-          if(err) {
-            console.error(err);
-            return;
-          } else {
-            req.flash('success', 'You are now registered and can log in');
-            res.redirect('/users/login');
-          }
-        });
+        console.log("test uwu");
+       newUser.save(function(err){
+           if(err) {
+             console.error(err);
+             return;
+           } else {
+             //req.flash('success', 'You are now registered and can log in');
+             res.redirect('/users/login');
+           }
+         });
       });
     })
   }

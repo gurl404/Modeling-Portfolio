@@ -89,5 +89,5 @@ const UserSchema = mongoose.Schema({
 });
 
 const User = mongoose.model('User', UserSchema);
-mongoose.exports = User; 
-module.exports = router; 
+module.exports = User; 
+

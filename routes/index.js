@@ -1,49 +1,50 @@
 
 const express = require('express');
-const routes = express.Router();
-const app = express();
+const router = express.Router();
+
 //Register models 
 require('../models/User.js');
 require('../models/Comment.js');
 
+router.use(express.urlencoded({extended: true}));
 
-//routes
+//router
 let users = require('./users.js');
-app.use('/users', 'users');
+router.use('/users', users);
 
-let comment = require('./comment.js')
-app.use('/comment', 'comment')
+//let comment = require('./comment.js')
+//router.use('/comment', comment)
 
-routes.use(function (req,res,next) {
+router.use(function (req,res,next) {
   console.log("/" + req.method);
   next();
 });
 
-routes.get("/layout", function(req,res){
+router.get("/layout", function(req,res){
     res.render('layout.pug', {title:'Caterina Clayton Modeling'});
 })
 
 //Once in pug files, use res.render('filename', {xxxxx})
-routes.get("/",function(req,res){
+router.get("/",function(req,res){
   res.render("portfolio.pug");
 });
 
-routes.get("/book",function(req,res){
+router.get("/book",function(req,res){
   res.render("book.pug");
 });
 
-routes.get("/review",function(req,res){
+router.get("/review",function(req,res){
   res.render("review.pug");
 });
 
-routes.get("/login",function(req,res){
+router.get("/login",function(req,res){
   res.render("login.pug");
 });
 
-routes.get("/signup",function(req,res){
+router.get("/signup",function(req,res){
   res.render("signup.pug");
 });
 
 
-module.exports = routes;
-module.exports = router; 
+module.exports = router;
+ 
