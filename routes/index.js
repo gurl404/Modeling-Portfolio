@@ -1,10 +1,10 @@
 
 const express = require('express');
 const router = express.Router();
-
-//Register models 
-require('../models/User.js');
-require('../models/Comment.js');
+const flash = require('connect-flash');
+// //Register models 
+// require('../models/User.js');
+// require('../models/Comment.js');
 
 router.use(express.urlencoded({extended: true}));
 

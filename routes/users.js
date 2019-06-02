@@ -48,20 +48,20 @@ console.log("test");
     });
 
     bcrypt.genSalt(10, function(err, salt){ 
-        console.log("test49");
+    
       bcrypt.hash(newUser.password, salt, function(err, hash){
-          console.log("test51");
+
         if(err){
           console.error(err);
         }
         newUser.password = hash;
-        console.log("test uwu");
+  
        newUser.save(function(err){
            if(err) {
              console.error(err);
              return;
            } else {
-             //req.flash('success', 'You are now registered and can log in');
+             req.flash('success', 'You are now registered and can log in');
              res.redirect('/users/login');
            }
          });
@@ -85,7 +85,9 @@ router.post('/login', function(req, res, next){
 });
 
 // Logout form
+
 router.get('/logout', function(req, res) {
+  console.log("test90");
   req.logout();
   req.flash('success', 'You are logged out');
   res.redirect('/users/login');

@@ -3,4 +3,4 @@ module.exports = {
     secret: 'mysecret'
   }
 
-  module.exports = router; 
+ 

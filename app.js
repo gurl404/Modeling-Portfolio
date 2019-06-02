@@ -5,17 +5,38 @@ const router = require('./routes/index');
 const path = __dirname + '/views/';
 const mongoose = require('mongoose');
 const passport = require('passport');
+const flash = require('connect-flash');
+const session = require('express-session');
 ////////////////////////
 config = {
   serverPort:  3000,
   dbUrl: 'mongodb://localhost/cc_modeling'
 }
 ////////////////////////
+// Express Session middleware
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true
+}));
+
 //some passport shtuffz that I need to complete/fix
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('./path/to/passport/config/file')(passport);
+require('./config/passport')(passport);
+
+app.get('*', function(req, res, next){
+  res.locals.user = req.user || null;
+  next();
+});
+////////////
+// Express Messages Middleware
+app.use(flash());
+app.use(function (req, res, next) {
+  res.locals.messages = require('express-messages')(req, res);
+  next();
+});
 
 //express-validator API (outdated but might work for now)
 const expressValidator = require('express-validator');
