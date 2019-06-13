@@ -2,12 +2,12 @@ extends layout.pug
 
 block content
   
-  form(method='POST', action='/comment/add')
-    .form-group
-      label Author:
+  form.form-comment(method='POST', action='/comment/add')
+    .form-group-name
+      label Name:
       input.form-control(name='author', type='text')
-    .form-group
-      label Body:
+    .form-group-comment
+      label What would you like to share?
       textarea.form-control(name='body')
     br
     input.btn.btn-primary(type='submit', value='Submit')

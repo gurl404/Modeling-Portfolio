@@ -1,5 +1,11 @@
 extends layout.pug
 
 block content 
-    div(class="jumbotron") 
-        p Add interactive Calendar here. 
+//h3 Book Our Shoot
+//div
+    form(action='/photoshoot' method="post")
+        label(for='photoshoot') Skills 
+        select(name='dropDown', id='')
+            each genre in genres
+                option=genre
+            input(type='submit', value='Submit')
