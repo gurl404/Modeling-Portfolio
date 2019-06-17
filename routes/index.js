@@ -15,9 +15,9 @@ router.use('/users', users);
 let comment = require('./comment.js');
 router.use('/comment', comment);
 
-let booking = require('./booking.js')
+let booking = require('./book.js')
 router.use(function (req,res,next) {
-  console.log("/booking" + booking);
+  console.log("/book" + booking);
   next();
 });
 

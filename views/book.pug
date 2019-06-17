@@ -1,11 +1,31 @@
 extends layout.pug
 
 block content 
-//h3 Book Our Shoot
-//div
-    form(action='/photoshoot' method="post")
-        label(for='photoshoot') Skills 
-        select(name='dropDown', id='')
-            each genre in genres
-                option=genre
-            input(type='submit', value='Submit')
+h3 Book Our Shoot
+
+form#tableForm(action='/getJson' method='get')
+  select.selectpicker(data-style='btn-info' name='genre')
+    optgroup(label='Choose a genre')
+      option(name='' value='0') Select table
+      option(name='Editorial' value='1') Table 1
+      option(name='Fashion' value='2') Table 2
+      option(name='Boudoir' value='3') Table 3
+  input(type='submit')
+
+form#tableForm(action='/getJson' method='get')
+  select.selectpicker(data-style='btn-info' name='payment')
+    optgroup(label='Choose a genre')
+      option(name='' value='0') Select table
+      option(name='Hourly Rate' value='1') Table 1
+      option(name='TFP with Print Release' value='2') Table 2
+      option(name='TFP with Publication' value='3') Table 3
+  input(type='submit')
+
+  form#tableForm(action='/getJson' method='get')
+  select.selectpicker(data-style='btn-info' name='location')
+    optgroup(label='Choose a genre')
+      option(name='' value='0') Select table
+      option(name='Greater St. Louis Area' value='1') Table 1
+      option(name='Illinois' value='2') Table 2
+      option(name='Other' value='3') Table 3
+  input(type='submit')
