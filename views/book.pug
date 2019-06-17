@@ -1,31 +1,29 @@
 extends layout.pug
 
 block content 
-h3 Book Our Shoot
 
-form#tableForm(action='/getJson' method='get')
-  select.selectpicker(data-style='btn-info' name='genre')
-    optgroup(label='Choose a genre')
-      option(name='' value='0') Select table
-      option(name='Editorial' value='1') Table 1
-      option(name='Fashion' value='2') Table 2
-      option(name='Boudoir' value='3') Table 3
-  input(type='submit')
+  h3 Book Our Shoot
 
-form#tableForm(action='/getJson' method='get')
-  select.selectpicker(data-style='btn-info' name='payment')
-    optgroup(label='Choose a genre')
-      option(name='' value='0') Select table
-      option(name='Hourly Rate' value='1') Table 1
-      option(name='TFP with Print Release' value='2') Table 2
-      option(name='TFP with Publication' value='3') Table 3
-  input(type='submit')
+  form#tableForm(action='/book/getJson' method='post')
+    select.selectpicker(data-style='btn-info' name='genre')
+      optgroup(label='Choose a genre')
+        option(name='' value='0') ...
+        option(name='Editorial' value='1') Editorial
+        option(name='Fashion' value='2') Fashion
+        option(name='Boudoir' value='3') Boudoir
+        option(name='Bodypaint' value = '4') Body Paint
+        
+    select.selectpicker(data-style='btn-info' name='payment')
+      optgroup(label='Choose a payment')
+        option(name='' value='0') ...
+        option(name='Hourly Rate' value='1') Hourly Rate
+        option(name='TFP with Print Release' value='2') TFP with Print Release
+        option(name='TFP with Publication' value='3') TFP with Publication
 
-  form#tableForm(action='/getJson' method='get')
-  select.selectpicker(data-style='btn-info' name='location')
-    optgroup(label='Choose a genre')
-      option(name='' value='0') Select table
-      option(name='Greater St. Louis Area' value='1') Table 1
-      option(name='Illinois' value='2') Table 2
-      option(name='Other' value='3') Table 3
-  input(type='submit')
+    select.selectpicker(data-style='btn-info' name='location')
+      optgroup(label='Choose a general location')
+        option(name='' value='0') ...
+        option(name='Greater St. Louis Area' value='1') Greater St. Louis Area
+        option(name='Illinois' value='2') Illinois
+        option(name='Other' value='3') Other
+    input(type='submit')
