@@ -14,9 +14,9 @@ o	Submit comments: Users will be able to submit comments about the site and prev
 o	Book appointments: Users will be able to book shoots with me. 
 
 ## Technologies 
-o	JavaScript & Node
+o	JavaScript/Node
 
-o	MySQL
+o	CSS/Bootstrap/Pug
 
 o	Express
 
