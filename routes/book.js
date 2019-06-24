@@ -10,10 +10,9 @@ const User = require('../models/User');
 router.get("/",function(req,res){
     res.render("book.pug");
 });
-const user = mongoose.model('User', UserSchema);
-
+//userId = req.session.userId
 router.post('/getJson', async function (req, res) {
-   const customer = user.find('username');
+   //const customer = User.findById(userID);
    const genre = req.body.genre;
    const payment = req.body.payment;
    const location= req.body.location;

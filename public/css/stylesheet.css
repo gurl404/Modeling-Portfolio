@@ -1,3 +1,16 @@
+.resume {
+    max-width: 500px;
+    text-align: right;
+    padding: 15px;
+    background: black;  
+    float: right;
+    margin: 150px;
+}
+.resumeList{
+    text-align: left;
+    background: lightgray; 
+    padding: 15px;
+}
 .form-signin {
     width: 100%;
     max-width: 420px;
