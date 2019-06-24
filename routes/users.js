@@ -55,7 +55,7 @@ router.post('/signup', function(req, res){
           console.error(err);
         }
         newUser.password = hash;
-  
+        newUser.salt = salt; 
        newUser.save(function(err){
            if(err) {
              console.error(err);
@@ -72,16 +72,37 @@ router.post('/signup', function(req, res){
 
 // Login form
 router.get('/login', function(req, res) {
+  
   res.render('login.pug');
 });
 
 // Login process
-router.post('/login', function(req, res, next){
-  passport.authenticate('local', { 
-    successRedirect: '/',
-    failureRedirect: '/users/login',
-    failureFlash: true
-  })(req, res, next);
+router.post('/login', async function(req, res, next){
+  // passport.authenticate('local', { 
+  //   successRedirect: '/',
+  //   failureRedirect: '/users/login',
+  //   failureFlash: true
+  // })(req, res, next);
+  const username = req.body.username;
+  const password = req.body.password;
+  const customer = await User.findOne({username: username});
+  if (!customer){
+    res.redirect('/users/login'); 
+  }
+  
+  bcrypt.hash(password, customer.salt, function(err, hash){
+
+    if(err){
+      console.error(err);
+    }
+    if (customer.password != hash){
+      res.redirect('/users/login');
+    } else{
+      req.session.userId = customer._id; 
+      res.redirect('/');
+    }
+  });
+
 });
 
 // Logout form
@@ -89,6 +110,7 @@ router.post('/login', function(req, res, next){
 router.get('/logout', function(req, res) {
   req.logout();
   req.flash('success', 'You are logged out');
+  req.session.userId = null; 
   res.redirect('/users/login');
 });
 

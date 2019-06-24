@@ -36,7 +36,7 @@ app.use(passport.session());
 require('./config/passport')(passport);
 
 app.get('*', function(req, res, next){
-  res.locals.user = req.user || null;
+  res.locals.user = req.session.userId || null;
   next();
 });
 ////////////

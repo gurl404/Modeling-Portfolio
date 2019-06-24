@@ -21,6 +21,7 @@ router.get("/layout", function(req,res){
 
 //////
 router.get("/",function(req,res){
+  console.log(req.session);
   res.render("portfolio.pug");
 });
 
