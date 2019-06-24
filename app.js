@@ -22,7 +22,7 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false, //don't save if unmodified
   saveUninitialized: false, //don't create sessions until something stored
-  name: 'sid'
+  name: 'sid',
   cookie: {
     maxAge: TWO_HOURS, 
     sameSite: true, 
