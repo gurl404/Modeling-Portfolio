@@ -15,7 +15,7 @@ const BookingSchema = mongoose.Schema({
     type: String,
     required: true
   }
-  
+
 });
 
 const Booking = mongoose.model('Booking', BookingSchema);
