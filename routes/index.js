@@ -2,9 +2,6 @@
 const express = require('express');
 const router = express.Router();
 const flash = require('connect-flash');
-// //Register models 
-// require('../models/User.js');
-// require('../models/Comment.js');
 
 router.use(express.urlencoded({extended: true}));
 
@@ -19,10 +16,10 @@ let booking = require('./book.js')
 router.use('/book', booking);
 
 router.get("/layout", function(req,res){
-    res.render('layout.pug', {title:'Caterina Clayton Modeling'});
+  res.render('layout.pug', {title:'Caterina Clayton Modeling'});
 })
 
-//Once in pug files, use res.render('filename', {xxxxx})
+//////
 router.get("/",function(req,res){
   res.render("portfolio.pug");
 });
