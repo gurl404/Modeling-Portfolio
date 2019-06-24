@@ -1,0 +1,12 @@
+extends layout.pug
+
+block content 
+    h3 Your Bookings 
+    each appointment in appointments
+        div(style="background:lightgray")
+            p #{appointment.genre}
+            p #{appointment.payment}
+            p #{appointment.location}
+            form(action="/appointments" method = "post")
+                input(type = "hidden" name= "Id" value= appointment._id)
+                input.btn.btn-primary(type='submit', value='Submit')

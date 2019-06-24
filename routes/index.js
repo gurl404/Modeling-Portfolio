@@ -15,6 +15,9 @@ router.use('/comment', comment);
 let booking = require('./book.js')
 router.use('/book', booking);
 
+let appointments = require('./appointments.js')
+router.use("/appointments", appointments);
+
 router.get("/layout", function(req,res){
   res.render('layout.pug', {title:'Caterina Clayton Modeling'});
 })
