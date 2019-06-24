@@ -7,18 +7,29 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
-
+const TWO_HOURS = 1000*60*60*2; 
+const MongoStore = require('connect-mongo')(session);
 ////////////////////////
-config = {
+const config = {
   serverPort:  3000,
+  NODE_ENV = 'development',
   dbUrl: 'mongodb://localhost/cc_modeling'
 }
+
+const IN_PROD = NODE_ENV === 'production';
 ////////////////////////
 // Express Session middleware
 app.use(session({
+
   secret: 'keyboard cat',
-  resave: true,
-  saveUninitialized: true
+  resave: false, //don't save if unmodified
+  saveUninitialized: false, //don't create sessions until something stored
+  name: 'sid'
+  cookie: {
+    maxAge: TWO_HOURS, 
+    sameSite: true, 
+    secure: IN_PROD
+  }
 }));
 
 //some passport shtuffz that I need to complete/fix

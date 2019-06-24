@@ -9,8 +9,7 @@ router.get("/",function(req,res){
 });
 
 router.post('/getJson', async function (req, res) {
-   //console.log(req.body.genre);
-   //res.send('yo');
+
    const genre = req.body.genre;
    const payment = req.body.payment;
    const location= req.body.location;
@@ -23,7 +22,8 @@ router.post('/getJson', async function (req, res) {
   });
   
   await booking.save();
-    res.send('Your appointment has been requested.');
+  //Create pug template where users are redirected with messages  
+  res.redirect('/');
     
 });
  
