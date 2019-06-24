@@ -12,11 +12,9 @@ const MongoStore = require('connect-mongo')(session);
 ////////////////////////
 const config = {
   serverPort:  3000,
-  NODE_ENV = 'development',
   dbUrl: 'mongodb://localhost/cc_modeling'
 }
 
-const IN_PROD = NODE_ENV === 'production';
 ////////////////////////
 // Express Session middleware
 app.use(session({
@@ -28,8 +26,7 @@ app.use(session({
   cookie: {
     maxAge: TWO_HOURS, 
     sameSite: true, 
-    secure: IN_PROD
-  }
+    }
 }));
 
 //some passport shtuffz that I need to complete/fix
