@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 //Booking schema
 const BookingSchema = mongoose.Schema({
-  customer: {type: Schema.Types.ObjectId, ref: "User"},
+  customer: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
   genre: {
     type: String,
     required: true
