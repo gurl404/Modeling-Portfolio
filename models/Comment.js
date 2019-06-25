@@ -9,6 +9,10 @@ const CommentSchema = mongoose.Schema({
   body: {
     type: String,
     required: true
+  }, 
+  email: {
+    type: String,
+    required: true
   }
 });
 

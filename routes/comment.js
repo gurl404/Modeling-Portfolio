@@ -18,9 +18,10 @@ router.get('/add', function(req, res){
 // submit new comment
 router.post('/add', function(req, res){
   // Express validator
-  req.checkBody('author', 'Author is required').notEmpty();
-  req.checkBody('body', 'Body is required').notEmpty();
-  
+  req.checkBody('author', 'Name is required').notEmpty();
+  req.checkBody('body', 'Thoughts are required').notEmpty();
+  req.checkBody('email', 'Email is required').notEmpty();
+  req.checkBody('email', 'Email is required').isEmail();
   // Get errors
   let errors = req.validationErrors();
 
@@ -33,7 +34,8 @@ router.post('/add', function(req, res){
     let comment = new Comment();
     comment.author = req.body.author;
     comment.body = req.body.body;
-
+    comment.email = req.body.email; 
+    
     comment.save(function(err){
       if(err) {
         console.error(err);
