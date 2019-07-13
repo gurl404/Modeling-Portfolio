@@ -1,20 +1,27 @@
+.navbar-custom {
+    background-color: black;
+}
 .resume {
-    max-width: 500px;
+    display: flex; 
+    max-width: 800px;
     text-align: right;
     padding: 15px;
     background: black;  
     float: right;
     margin-top: 75px;
     margin-bottom: 75px; 
-    margin-right: 75px; 
-    margin-left: 60px; 
+    margin-right: 85px; 
+    margin-left: 40px; 
     border: 5px solid white;
     border-radius: 25px; 
 } 
 .resumeList{
+     
     text-align: left;
-    background: lightgray; 
+    background: whitesmoke; 
     padding: 15px;
+    border: 5px solid white;
+    border-radius: 25px;
 }
 .form-signin {
     width: 100%;
