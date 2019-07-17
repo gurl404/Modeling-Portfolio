@@ -2,11 +2,10 @@
     background-color: black;
 }
 .resume {
-    display: flex; 
     max-width: 800px;
     text-align: right;
     padding: 15px;
-    background: black;  
+    background: whitesmoke;  
     float: right;
     margin-top: 75px;
     margin-bottom: 75px; 
@@ -18,16 +17,26 @@
 .resumeList{
      
     text-align: left;
-    background: whitesmoke; 
+    background: white; 
     padding: 15px;
     border: 5px solid white;
     border-radius: 25px;
+}
+
+#tableform{
+    width: 100%;
+    max-width: 420px;
+    padding: 15px;
+    margin: auto;  
+    margin-top: 50px;
+     
 }
 .form-signin {
     width: 100%;
     max-width: 420px;
     padding: 15px;
     margin: auto;
+    margin-top: 50px;
   }
 
 .form-signup {
@@ -35,12 +44,21 @@
    max-width: 420px;
    padding: 10px;
    margin: auto;
+   margin-top: 50px;
  }
  .form-group-name{
     width: 100%;
     max-width: 420px;
     padding: 15px;
     padding-left: 0px; 
+}
+
+.form-comment{
+   width: 100%;
+   max-width: 420px;
+   padding: 10px;
+   margin: auto; 
+   margin-top: 50px;  
 }
 .form-group-comment{
     width: 100%;
@@ -83,15 +101,16 @@ img{
 }
 .carousel-inner{
     display:flex; 
-
-    .img1{ flex: calc(333/426 ) ; }
-    .img2{ flex: calc(333/500) ‬; }
-    .img3{ flex: calc(333/431 ) ; }
-    .img4{ flex: calc(333/444 ); }
-    .img5{ flex: calc(333/416 )‬; }
-    .img6{flex: calc(333/499 ) ;}
-    .img7{flex: ‬calc(333/429 );} 
 }
+.img1{ flex: calc(333/426 ) ; }
+.img2{ flex: calc(333/500) ‬; }
+.img3{ flex: calc(333/431 ) ; }
+.img4{ flex: calc(333/444 ); }
+.img5{ flex: calc(333/416 )‬; }
+.img6{flex: calc(333/499 ) ;}
+.img7{flex: ‬calc(333/429 );} 
+
+
 .carousel-control-prev{
     position: absolute; 
     top: 0;

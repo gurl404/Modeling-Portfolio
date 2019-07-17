@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+
 // Booking model
 const Booking = require('../models/Booking');
 // User model
-const User = require('../models/User');
+
 
 //get all bookings for logged in user
 router.get("/",async function(req,res){

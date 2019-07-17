@@ -2,7 +2,8 @@ extends layout.pug
 
 block content
   
-  form.form-signup(method='POST', action='/users/signup')
+  form(class = "form-signup shadow p-3 mb-5 bg-white rounded" method='POST', action='/users/signup')
+    h3 Signup
     .form-group
       label First Name:
       input.form-control(name='first_name', type='text')

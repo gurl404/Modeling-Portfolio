@@ -2,7 +2,8 @@ extends layout.pug
 
 block content
   
-  form.form-signin(method='POST', action='/users/login')
+  form(class = "form-signin shadow p-3 mb-5 bg-white rounded" method='POST', action='/users/login')
+    h3 Login
     .form-group
       label Username:
       input.form-control(name='username', type='text')

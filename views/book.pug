@@ -2,28 +2,30 @@ extends layout.pug
 
 block content 
 
-  h3 Book Our Shoot
+  
 
-  form#tableForm(action='/book/getJson' method='post')
-    select.selectpicker(data-style='btn-info' name='genre')
-      optgroup(label='Choose a genre')
-        option(name='' value='0') ...
-        option(name='Editorial' value='Editorial') Editorial
-        option(name='Fashion' value='Fashion') Fashion
-        option(name='Boudoir' value='Boudoir') Boudoir
-        option(name='Bodypaint' value = 'Bodypaint') Body Paint
+  form#tableForm(action='/book/getJson' method='post' class="shadow p-3 mb-5 bg-white rounded")
+    h3 Book Our Shoot
+    div(class="form-group")
+      label(for="sel3") Choose genre:
+      select.form-control(data-style='btn-info' name='genre' id = "sel3")
+          option(name='Editorial' value='Editorial') Editorial
+          option(name='Fashion' value='Fashion') Fashion
+          option(name='Boudoir' value='Boudoir') Boudoir
+          option(name='Bodypaint' value = 'Bodypaint') Body Paint
 
-    select.selectpicker(data-style='btn-info' name='payment')
-      optgroup(label='Choose a payment')
-        option(name='' value='0') ...
-        option(name='Hourly Rate' value='Hourly Rate') Hourly Rate
-        option(name='TFP with Print Release' value='TFP with Print Release') TFP with Print Release
-        option(name='TFP with Publication' value='TFP with Publication') TFP with Publication
+    div(class="form-group")
+      label(for="sel2") Choose payment option:
+      select.form-control(data-style='btn-info' name='payment' id = 'sel2')
+          option(name='Hourly Rate' value='Hourly Rate') Hourly Rate
+          option(name='TFP with Print Release' value='TFP with Print Release') TFP with Print Release
+          option(name='TFP with Publication' value='TFP with Publication') TFP with Publication
     
-    select.selectpicker(data-style='btn-info' name='location')
-      optgroup(label='Choose a general location')
-        option(name='' value='0') ...
+    div(class="form-group")
+      label(for="sel1") Choose a general location:
+      select.form-control(data-style='btn-info' name='location' id='sel1')
         option(name='Greater St. Louis Area' value='Greater St. Louis Area') Greater St. Louis Area
         option(name='Illinois' value='Illinois') Illinois
         option(name='Other' value='Other') Other
-    input(type='submit' value='Request Booking')
+
+    input(type='submit' value='Request Booking' class = "btn btn-primary")

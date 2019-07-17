@@ -3,7 +3,7 @@ extends layout.pug
 block content 
     h3 Your Bookings 
     each appointment in appointments
-        div(style="background:lightgray")
+        div(class = "shadow p-3 mb-5 bg-white rounded" style="background:lightgray")
             p #{appointment.genre}
             p #{appointment.payment}
             p #{appointment.location}

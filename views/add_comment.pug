@@ -2,7 +2,8 @@ extends layout.pug
 
 block content
   
-  form.form-comment(method='POST', action='/comment/add')
+  form(class="form-comment shadow p-3 mb-5 bg-white rounded" method='POST', action='/comment/add')
+    h3 Feedback
     .form-group-name
       label Name:
       input.form-control(name='author', type='text')
