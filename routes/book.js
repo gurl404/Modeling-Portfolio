@@ -31,8 +31,8 @@ router.post('/getJson', async function (req, res) {
   });
   
   await booking.save();
-  //Could create pug template where users are redirected with messages  
-  res.redirect('/');
+  
+  res.redirect('/appointments');
     
 });
  
